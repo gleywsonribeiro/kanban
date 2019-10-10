@@ -13,7 +13,7 @@
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="theme-color" content="#{guestPreferences.themeColors[guestPreferences.theme]}" />
         </f:facet>
-        <title>PrimeFaces Ultima</title>
+        <title>Monitor</title>
         <h:outputScript name="js/nanoscroller.js" library="ultima-layout" />
         <h:outputScript name="js/layout.js" library="ultima-layout" />
         <h:outputScript name="js/ripple.js" library="ultima-layout" />
@@ -25,7 +25,7 @@
         
         <div class="layout-wrapper #{guestPreferences.menuLayout} #{guestPreferences.orientationRTL ? 'layout-rtl' : null}">
             <ui:include src="./topbar.xhtml" />
-            <ui:include src="./rightpanel.xhtml" />
+            <!--<ui:include src="./rightpanel.xhtml" />-->
             <ui:include src="./menu.xhtml" />
             
             <div class="layout-main">
