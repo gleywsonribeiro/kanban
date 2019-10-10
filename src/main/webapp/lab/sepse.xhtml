@@ -17,20 +17,20 @@
                         <p:messages autoUpdate="true" closable="true" />
                         <h1>SEPSE</h1>
 
-                        <p:dataTable value="" var="pedido">
+                        <p:dataTable value="#{pedidoController.pedidosSepse}" var="pedido">
                             <f:facet name="header">
                                 Exames Pendentes
                             </f:facet>
                             <p:column headerText="Data">
-                                <h:outputText value="">
+                                <h:outputText value="#{pedido.dataPedido}">
                                     <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
                                 </h:outputText>
                             </p:column>
                             <p:column headerText="Pedido">
-                                <h:outputText value=""/>
+                                <h:outputText value="#{pedido.codigo}"/>
                             </p:column>
                             <p:column headerText="Setor">
-                                <h:outputText value=""/>
+                                <h:outputText value="#{pedido.setor}"/>
                             </p:column>
                         </p:dataTable>
                     </div>

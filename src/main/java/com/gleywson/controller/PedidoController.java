@@ -19,16 +19,18 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class PedidoController {
 
+    
+      
     private PedidoDao dao = new PedidoDao();
 
     private List<Pedido> pedidosMedicina;
-    private List<Pedido> pedidoSepse;
+    private List<Pedido> pedidosSepse;
     private List<Pedido> pedidosUrgentes;
     private List<Pedido> pedidosPendentes;
 
     public PedidoController() {
         pedidosMedicina = dao.getPedidosMedicina();
-        pedidoSepse = dao.getPedidosSepse();
+        pedidosSepse = dao.getPedidosSepse();
         pedidosUrgentes = dao.getPedidosUrgentes();
         pedidosPendentes = dao.getPedidosPendentes();
     }
@@ -37,8 +39,8 @@ public class PedidoController {
         return pedidosMedicina;
     }
 
-    public List<Pedido> getPedidoSepse() {
-        return pedidoSepse;
+    public List<Pedido> getPedidosSepse() {
+        return pedidosSepse;
     }
 
     public List<Pedido> getPedidosUrgentes() {
@@ -48,5 +50,7 @@ public class PedidoController {
     public List<Pedido> getPedidosPendentes() {
         return pedidosPendentes;
     }
+
+    
 
 }
