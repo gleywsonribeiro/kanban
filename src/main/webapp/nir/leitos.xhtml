@@ -1,0 +1,130 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Dashboard</ui:define>
+
+    <ui:define name="head">
+        <style type="text/css">
+            .jqplot-xaxis-label, .jqplot-yaxis-label, .jqplot-y2axis-label, .jqplot-x2axis-label {
+                color: #757575; 
+            }
+
+            table.jqplot-table-legend {
+                background-color: #ffffff;
+                color: #757575;
+                border-color: #bdbdbd;
+            }
+
+            .texto {
+                font-weight: 500;
+                color: #ffffff;
+                text-align: center;
+                border: 1px solid #fafafa;
+                height: 100px;
+            }
+
+            .solicitado {
+                background-color: #2D68CD;
+            }
+
+            .medicina {
+                background-color: #387236;
+            }
+
+            .pendente {
+                background-color: #F35F42;
+                /*color: #424242;*/
+            }
+
+            .urgente {
+                background-color: #DA2D2D;
+            }
+
+            .sepse {
+                background-color: #8B65F3;
+            }
+
+            a:link, a:visited, a:hover, a:active {
+                color: white;
+                text-align: center; 
+                text-decoration: none;
+            }
+        </style>
+
+    </ui:define>
+
+    <ui:define name="content">
+
+        <p:growl autoUpdate="true"/>
+        <h:form id="dashboard">
+            <div class="ui-g dashboard">
+
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g card colorbox colorbox-1">
+                        <div class="ui-g-4">
+                            <i class="material-icons">&#xE86C;</i>
+                        </div>
+                        <div class="ui-g-8">
+                            <span class="colorbox-name">Tasks</span>
+                            <span class="colorbox-count">50</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g card colorbox colorbox-2">
+                        <div class="ui-g-4">
+                            <i class="material-icons">&#xE8C9;</i>
+                        </div>
+                        <div class="ui-g-8">
+                            <span class="colorbox-name">Purchases</span>
+                            <span class="colorbox-count">1200</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g card colorbox colorbox-3">
+                        <div class="ui-g-4">
+                            <i class="material-icons">&#xE160;</i>
+                        </div>
+                        <div class="ui-g-8">
+                            <span class="colorbox-name">Issues</span>
+                            <span class="colorbox-count">22</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g card colorbox colorbox-4">
+                        <div class="ui-g-4">
+                            <i class="material-icons">&#xE0BE;</i>
+                        </div>
+                        <div class="ui-g-8">
+                            <span class="colorbox-name">Messages</span>
+                            <span class="colorbox-count">10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p:dataTable value="#{leitoController.leitosVagos}" var="leito">
+                    <p:column headerText="Unidade">
+                        <h:outputText value="#{leito.unidade}"/>
+                    </p:column>
+                    <p:column headerText="Leito">
+                        <h:outputText value="#{leito.leito}"/>
+                    </p:column>
+                    <p:column headerText="Espera">
+                        <h:outputText value="#{leito.tempo}"/>
+                    </p:column>
+                    
+                </p:dataTable>
+
+            </div>
+            <p:poll interval="60" update="dashboard" />
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

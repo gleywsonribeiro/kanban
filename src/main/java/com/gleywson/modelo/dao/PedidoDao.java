@@ -48,7 +48,7 @@ public class PedidoDao implements Serializable {
 
     private List<Pedido> getPedidos(TipoExame tipoExame) {
         Connection connection = null;
-        List<Pedido> lista = new ArrayList<Pedido>();
+        List<Pedido> lista = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {

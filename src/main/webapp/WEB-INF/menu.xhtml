@@ -13,7 +13,10 @@
 
                     <pu:menu widgetVar="me">
                         <p:menuitem id="um_dashboard" value="Dashboard" icon="&#xE871;" outcome="/dashboard"/>
-                        
+                        <p:submenu id="kanban" label="Kanban" icon="&#128202;">
+                            <p:menuitem id="nir" value="NIR" icon="&#128716;" outcome="/nir/leitos" />
+                            <p:menuitem id="laboratorio" value="Laboratório" icon="&#128300;" outcome="/lab/lab" />
+                        </p:submenu>
                     </pu:menu>
                 </div>
             </div>
