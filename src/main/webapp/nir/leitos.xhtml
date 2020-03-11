@@ -107,20 +107,40 @@
                         </div>
                     </div>
                 </div>
-                
-                <p:dataTable value="#{leitoController.leitosVagos}" var="leito">
-                    <p:column headerText="Unidade">
-                        <h:outputText value="#{leito.unidade}"/>
-                    </p:column>
-                    <p:column headerText="Leito">
-                        <h:outputText value="#{leito.leito}"/>
-                    </p:column>
-                    <p:column headerText="Espera">
-                        <h:outputText value="#{leito.tempo}"/>
-                    </p:column>
-                    
-                </p:dataTable>
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    <p:dataTable value="#{leitoController.leitosVagos}" var="leito">
+                        <f:facet name="header">
+                            <h:outputText value="Leitos Ociosos" />
+                        </f:facet>
+                        <p:column headerText="Unidade">
+                            <h:outputText value="#{leito.unidade}"/>
+                        </p:column>
+                        <p:column headerText="Leito">
+                            <h:outputText value="#{leito.leito}"/>
+                        </p:column>
+                        <p:column headerText="Espera">
+                            <h:outputText value="#{leito.tempo}"/>
+                        </p:column>
 
+                    </p:dataTable>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-6">
+                    <p:dataTable value="#{leitoController.leitosLimpeza}" var="leito">
+                        <f:facet name="header">
+                            <h:outputText value="Leitos em Higienização" />
+                        </f:facet>
+                        <p:column headerText="Unidade">
+                            <h:outputText value="#{leito.unidade}"/>
+                        </p:column>
+                        <p:column headerText="Leito">
+                            <h:outputText value="#{leito.leito}"/>
+                        </p:column>
+                        <p:column headerText="Espera">
+                            <h:outputText value="#{leito.tempo}"/>
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
             </div>
             <p:poll interval="60" update="dashboard" />
         </h:form>

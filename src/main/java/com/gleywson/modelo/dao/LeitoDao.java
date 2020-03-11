@@ -72,6 +72,48 @@ public class LeitoDao {
     }
 
     public List<LeitoLimpeza> getLeitosEmLimpeza() {
-        return null;
+        connection = ConnectionFactory.createConnectionToOracle();
+        List<LeitoLimpeza> leitos = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement("SELECT * FROM LEITO_LIMPEZA");
+            rs = statement.executeQuery();
+
+            while (rs.next()) {
+                
+                LeitoLimpeza leito = new LeitoLimpeza();
+                leito.setUnidade(rs.getString(1));
+                leito.setLeito(rs.getString(2));
+                leito.setSolicitacaoLimpeza(rs.getInt(3));
+                leito.setHoraSolicitacao(rs.getTimestamp(4));
+                leito.setHoraAtual(rs.getTimestamp(5));
+                
+                leitos.add(leito);
+                        
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) {
+
+                    statement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return leitos;
     }
 }

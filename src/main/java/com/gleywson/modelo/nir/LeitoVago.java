@@ -5,6 +5,7 @@
  */
 package com.gleywson.modelo.nir;
 
+import com.gleywson.util.CalcDate;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -68,15 +69,7 @@ public class LeitoVago {
     }
 
     public String getTempo() {
-        LocalDateTime inicio = liberacao.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        LocalDateTime fim = horaAtual.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        Duration duration = Duration.between(inicio, fim);
-        long dias = duration.toDays();
-        Duration hours = duration.minus(dias, ChronoUnit.DAYS);
-        long horas = hours.toHours();
-        Duration minutes = hours.minus(horas, ChronoUnit.HOURS);
-        long minutos = minutes.toMinutes();        
-        return String.format("%d - %02d:%02d", dias, horas, minutos);
+        return CalcDate.tempoEntredatas(liberacao, horaAtual);
     }
 
 }

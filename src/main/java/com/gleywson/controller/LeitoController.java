@@ -6,6 +6,7 @@
 package com.gleywson.controller;
 
 import com.gleywson.modelo.dao.LeitoDao;
+import com.gleywson.modelo.nir.LeitoLimpeza;
 import com.gleywson.modelo.nir.LeitoVago;
 import java.io.Serializable;
 import java.util.List;
@@ -22,9 +23,15 @@ public class LeitoController implements Serializable {
 
     private LeitoDao dao = new LeitoDao();
     private List<LeitoVago> leitosVagos = dao.getLeitosVagos(); 
+    private List<LeitoLimpeza> leitosLimpeza = dao.getLeitosEmLimpeza();
 
     public List<LeitoVago> getLeitosVagos() {
         return leitosVagos;
     }
 
+    public List<LeitoLimpeza> getLeitosLimpeza() {
+        return leitosLimpeza;
+    }
+
+    
 }

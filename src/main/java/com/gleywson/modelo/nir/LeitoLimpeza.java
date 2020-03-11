@@ -5,6 +5,7 @@
  */
 package com.gleywson.modelo.nir;
 
+import com.gleywson.util.CalcDate;
 import java.util.Date;
 
 /**
@@ -71,5 +72,8 @@ public class LeitoLimpeza {
         this.horaAtual = horaAtual;
     }
     
+    public String getTempo() {
+        return CalcDate.tempoEntredatas(horaSolicitacao, horaAtual);
+    }
     
 }
