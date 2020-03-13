@@ -61,52 +61,61 @@
 
         <p:growl autoUpdate="true"/>
         <h:form id="dashboard">
+            <div class="card">
+                <h:outputLabel for="menu" value="Filtro:" />
+                <p:selectCheckboxMenu id="menu" value="#{checkboxView.selectedCities}" label="Unidades"
+                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                    <f:selectItems value="#{checkboxView.cities}" />
+                </p:selectCheckboxMenu>
+            </div>
             <div class="ui-g dashboard">
 
-                <div class="ui-g-12 ui-md-6 ui-lg-3">
-                    <div class="ui-g card colorbox colorbox-1">
-                        <div class="ui-g-4">
-                            <i class="material-icons">&#xE86C;</i>
-                        </div>
-                        <div class="ui-g-8">
-                            <span class="colorbox-name">Tasks</span>
-                            <span class="colorbox-count">50</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-3">
-                    <div class="ui-g card colorbox colorbox-2">
-                        <div class="ui-g-4">
-                            <i class="material-icons">&#xE8C9;</i>
-                        </div>
-                        <div class="ui-g-8">
-                            <span class="colorbox-name">Purchases</span>
-                            <span class="colorbox-count">1200</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-3">
-                    <div class="ui-g card colorbox colorbox-3">
-                        <div class="ui-g-4">
-                            <i class="material-icons">&#xE160;</i>
-                        </div>
-                        <div class="ui-g-8">
-                            <span class="colorbox-name">Issues</span>
-                            <span class="colorbox-count">22</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-3">
-                    <div class="ui-g card colorbox colorbox-4">
-                        <div class="ui-g-4">
-                            <i class="material-icons">&#xE0BE;</i>
-                        </div>
-                        <div class="ui-g-8">
-                            <span class="colorbox-name">Messages</span>
-                            <span class="colorbox-count">10</span>
-                        </div>
-                    </div>
-                </div>
+                <!--                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                                    <div class="ui-g card colorbox colorbox-1">
+                                        <div class="ui-g-4">
+                                            <i class="material-icons">&#xE86C;</i>
+                                        </div>
+                                        <div class="ui-g-8">
+                                            <span class="colorbox-name">Tasks</span>
+                                            <span class="colorbox-count">50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                                    <div class="ui-g card colorbox colorbox-2">
+                                        <div class="ui-g-4">
+                                            <i class="material-icons">&#xE8C9;</i>
+                                        </div>
+                                        <div class="ui-g-8">
+                                            <span class="colorbox-name">Purchases</span>
+                                            <span class="colorbox-count">1200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                                    <div class="ui-g card colorbox colorbox-3">
+                                        <div class="ui-g-4">
+                                            <i class="material-icons">&#xE160;</i>
+                                        </div>
+                                        <div class="ui-g-8">
+                                            <span class="colorbox-name">Issues</span>
+                                            <span class="colorbox-count">22</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                                    <div class="ui-g card colorbox colorbox-4">
+                                        <div class="ui-g-4">
+                                            <i class="material-icons">&#xE0BE;</i>
+                                        </div>
+                                        <div class="ui-g-8">
+                                            <span class="colorbox-name">Messages</span>
+                                            <span class="colorbox-count">10</span>
+                                        </div>
+                                    </div>
+                                </div>-->
+
+
                 <div class="ui-g-12 ui-md-6 ui-lg-6">
                     <p:dataTable value="#{leitoController.leitosVagos}" var="leito">
                         <f:facet name="header">
