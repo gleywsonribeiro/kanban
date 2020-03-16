@@ -61,12 +61,13 @@
 
         <p:growl autoUpdate="true"/>
         <h:form id="dashboard">
-            <div class="card">
-                <h:outputLabel for="menu" value="Filtro:" />
-                <p:selectCheckboxMenu id="menu" value="#{checkboxView.selectedCities}" label="Unidades"
+            <div class="card card-w-title">
+                <h1>Kanban NIR</h1>
+<!--                <h:outputLabel for="menu" value="Filtro:" />
+                <p:selectCheckboxMenu id="menu" value="{checkboxView.selectedCities}" label="Unidades"
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                    <f:selectItems value="#{checkboxView.cities}" />
-                </p:selectCheckboxMenu>
+                    <f:selectItems value="{checkboxView.cities}" />
+                </p:selectCheckboxMenu>-->
             </div>
             <div class="ui-g dashboard">
 
@@ -127,9 +128,11 @@
                         <p:column headerText="Leito">
                             <h:outputText value="#{leito.leito}"/>
                         </p:column>
-                        <p:column headerText="Espera">
-                            <h:outputText value="#{leito.tempo}"/>
+
+                        <p:column style="text-align: center; width: 30px">
+                            <p:graphicImage name="/ultima-layout/images/#{leito.statusCor}.png" width="30" height="30"/>
                         </p:column>
+                        
 
                     </p:dataTable>
                 </div>
@@ -144,10 +147,10 @@
                         <p:column headerText="Leito">
                             <h:outputText value="#{leito.leito}"/>
                         </p:column>
-                        <p:column headerText="Espera">
-                            <h:outputText value="#{leito.tempo}"/>
+                        <p:column style="text-align: center; width: 30px">
+                            <p:graphicImage name="/ultima-layout/images/#{leito.statusCor}.png" width="30" height="30"/>
                         </p:column>
-
+                       
                     </p:dataTable>
                 </div>
             </div>

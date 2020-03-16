@@ -6,13 +6,7 @@
 package com.gleywson.modelo.nir;
 
 import com.gleywson.util.CalcDate;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
 import java.util.Date;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
 /**
  *
@@ -70,6 +64,17 @@ public class LeitoVago {
 
     public String getTempo() {
         return CalcDate.tempoEntredatas(liberacao, horaAtual);
+    }
+
+    public String getStatusCor() {
+        long tempoEmMinutos = CalcDate.getTempo(liberacao, horaAtual);
+        if (tempoEmMinutos < 60) {
+            return "verde";
+        } else if (tempoEmMinutos >= 60 && tempoEmMinutos < 90) {
+            return "amarelo";
+        } else {
+            return "vermelho";
+        }
     }
 
 }

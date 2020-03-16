@@ -76,4 +76,15 @@ public class LeitoLimpeza {
         return CalcDate.tempoEntredatas(horaSolicitacao, horaAtual);
     }
     
+    public String getStatusCor() {
+        long tempoEmMinutos = CalcDate.getTempo(horaSolicitacao, horaAtual);
+        if (tempoEmMinutos < 45) {
+            return "verde";
+        } else if (tempoEmMinutos >= 45 && tempoEmMinutos < 60) {
+            return "amarelo";
+        } else {
+            return "vermelho";
+        }
+    }
+    
 }

@@ -27,4 +27,13 @@ public class CalcDate {
         long minutos = minutes.toMinutes();        
         return String.format("%d - %02d:%02d", dias, horas, minutos);
     }
+    
+    public static long getTempo(Date dataInicial, Date dataFinal) {
+        LocalDateTime inicio = dataInicial.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime fim = dataFinal.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        Duration duration = Duration.between(inicio, fim);
+        
+        
+        return duration.toMinutes();
+    }
 }

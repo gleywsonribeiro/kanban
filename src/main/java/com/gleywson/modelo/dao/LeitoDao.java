@@ -6,7 +6,6 @@
 package com.gleywson.modelo.dao;
 
 import com.gleywson.controller.factory.ConnectionFactory;
-import com.gleywson.modelo.Pedido;
 import com.gleywson.modelo.nir.LeitoLimpeza;
 import com.gleywson.modelo.nir.LeitoVago;
 import java.sql.Connection;
@@ -15,8 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
