@@ -18,7 +18,6 @@ public class LeitoVago {
     private String leito;
     private Date liberacao;
     private Date horaAtual;
-    private String tempo;
 
     public LeitoVago() {
     }

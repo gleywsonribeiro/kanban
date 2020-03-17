@@ -24,16 +24,21 @@ public class CalcDate {
         Duration hours = duration.minus(dias, ChronoUnit.DAYS);
         long horas = hours.toHours();
         Duration minutes = hours.minus(horas, ChronoUnit.HOURS);
-        long minutos = minutes.toMinutes();        
-        return String.format("%d - %02d:%02d", dias, horas, minutos);
+        long minutos = minutes.toMinutes();   
+        String saida;
+        if(dias > 0) {
+            saida = String.format("%d - %02d:%02d", dias, horas, minutos);
+        } else {
+            saida = String.format("%02d:%02d", horas, minutos);
+        }
+        return saida;
     }
     
     public static long getTempo(Date dataInicial, Date dataFinal) {
         LocalDateTime inicio = dataInicial.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         LocalDateTime fim = dataFinal.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         Duration duration = Duration.between(inicio, fim);
-        
-        
+
         return duration.toMinutes();
     }
 }

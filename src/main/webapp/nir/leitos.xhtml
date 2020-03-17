@@ -63,11 +63,11 @@
         <h:form id="dashboard">
             <div class="card card-w-title">
                 <h1>Kanban NIR</h1>
-<!--                <h:outputLabel for="menu" value="Filtro:" />
-                <p:selectCheckboxMenu id="menu" value="{checkboxView.selectedCities}" label="Unidades"
-                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                    <f:selectItems value="{checkboxView.cities}" />
-                </p:selectCheckboxMenu>-->
+                <!--                <h:outputLabel for="menu" value="Filtro:" />
+                                <p:selectCheckboxMenu id="menu" value="{checkboxView.selectedCities}" label="Unidades"
+                                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                    <f:selectItems value="{checkboxView.cities}" />
+                                </p:selectCheckboxMenu>-->
             </div>
             <div class="ui-g dashboard">
 
@@ -129,10 +129,14 @@
                             <h:outputText value="#{leito.leito}"/>
                         </p:column>
 
+                        <p:column headerText="Tempo" style="text-align: right">
+                            <h:outputText value="#{leito.tempo}"/>
+                        </p:column>
+
                         <p:column style="text-align: center; width: 30px">
                             <p:graphicImage name="/ultima-layout/images/#{leito.statusCor}.png" width="30" height="30"/>
                         </p:column>
-                        
+
 
                     </p:dataTable>
                 </div>
@@ -147,10 +151,13 @@
                         <p:column headerText="Leito">
                             <h:outputText value="#{leito.leito}"/>
                         </p:column>
+                        <p:column headerText="Tempo" style="text-align: right">
+                            <h:outputText value="#{leito.tempo}"/>
+                        </p:column>
                         <p:column style="text-align: center; width: 30px">
                             <p:graphicImage name="/ultima-layout/images/#{leito.statusCor}.png" width="30" height="30"/>
                         </p:column>
-                       
+
                     </p:dataTable>
                 </div>
             </div>
