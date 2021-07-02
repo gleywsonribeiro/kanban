@@ -1,0 +1,110 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Dashboard</ui:define>
+
+    <ui:define name="head">
+        <style type="text/css">
+            .jqplot-xaxis-label, .jqplot-yaxis-label, .jqplot-y2axis-label, .jqplot-x2axis-label {
+                color: #757575; 
+            }
+
+            table.jqplot-table-legend {
+                background-color: #ffffff;
+                color: #757575;
+                border-color: #bdbdbd;
+            }
+
+            .texto {
+                font-weight: 500;
+                color: #ffffff;
+                text-align: center;
+                border: 1px solid #fafafa;
+                height: 100px;
+            }
+
+            .solicitado {
+                background-color: #2D68CD;
+            }
+
+            .medicina {
+                background-color: #387236;
+            }
+
+            .pendente {
+                background-color: #F35F42;
+                /*color: #424242;*/
+            }
+
+            .urgente {
+                background-color: #DA2D2D;
+            }
+
+            .sepse {
+                background-color: #8B65F3;
+            }
+
+            a:link, a:visited, a:hover, a:active {
+                color: white;
+                text-align: center; 
+                text-decoration: none;
+            }
+        </style>
+
+    </ui:define>
+
+    <ui:define name="content">
+
+        <p:growl autoUpdate="true"/>
+        <h:form id="dashboard">
+            <div class="card card-w-title">
+                <h1>Kanban PA</h1>
+
+
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <p:dataTable value="#{paController.pacientes}" var="paciente">
+                        <f:facet name="header">
+                            <h:outputText value="Pacientes em Urgência" />
+                        </f:facet>
+                        <p:column headerText="Paciente">
+                            <h:outputText value="#{paciente.nome}"/>
+                        </p:column>
+                        <p:column headerText="Classificação">
+                            <h:outputText value="#{paciente.dataClassificacao}"/>
+                        </p:column>
+
+                        <p:column headerText="Cor" style="text-align: right">
+                            <h:outputText value="#{paciente.cor}"/>
+                        </p:column>
+
+                        <p:column headerText="Data Atendimento">
+                            <h:outputText value="#{paciente.dataAtendimento}"/>
+                        </p:column>
+
+                        <p:column headerText="Atendimento">
+                            <h:outputText value="#{paciente.codigoAtendimento}"/>
+                        </p:column>
+
+                        <p:column headerText="1ª ECG" style="text-align: right">
+                            <h:outputText value="#{paciente.dataFau}"/>
+                        </p:column>
+
+                        <p:column headerText="1ª Evo / ENF" style="text-align: right">
+                            <h:outputText value="#{paciente.evoDas}"/>
+                        </p:column>
+
+
+                    </p:dataTable>
+                </div>
+
+            </div>
+            <p:poll interval="60" update="dashboard" />
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
