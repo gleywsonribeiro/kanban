@@ -19,6 +19,8 @@ public class PacienteKanban {
     private long codigoAtendimento;
     private String cor;
     private Date dataAtendimento;
+    private String ExamesRX;
+    private String ExamesTC;
 
     public PacienteKanban() {
     }
@@ -90,6 +92,20 @@ public class PacienteKanban {
     public void setDataAtendimento(Date dataAtendimento) {
         this.dataAtendimento = dataAtendimento;
     }
-    
-    
+
+    public String getExamesRX() {
+        return ExamesRX;
+    }
+
+    public void setExamesRX(String examesRX) {
+        ExamesRX = examesRX;
+    }
+
+    public String getExamesTC() {
+        return ExamesTC;
+    }
+
+    public void setExamesTC(String examesTC) {
+        ExamesTC = examesTC;
+    }
 }

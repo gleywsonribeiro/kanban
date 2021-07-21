@@ -10,7 +10,7 @@
     <ui:define name="head">
         <style type="text/css">
             .jqplot-xaxis-label, .jqplot-yaxis-label, .jqplot-y2axis-label, .jqplot-x2axis-label {
-                color: #757575; 
+                color: #757575;
             }
 
             table.jqplot-table-legend {
@@ -27,30 +27,44 @@
                 height: 100px;
             }
 
-            .solicitado {
-                background-color: #2D68CD;
+            .vermelho {
+                background-color: rgba(255, 0, 0, 0.7);
             }
 
-            .medicina {
-                background-color: #387236;
+            .laranja {
+                background-color: rgba(255, 153, 0, 0.7);
             }
 
-            .pendente {
-                background-color: #F35F42;
-                /*color: #424242;*/
+            .amarelo {
+                background-color: rgba(255, 255, 0, 0.7);
             }
 
-            .urgente {
-                background-color: #DA2D2D;
+            .verde {
+                background-color: rgba(0, 153, 0, 0.7);
             }
 
-            .sepse {
-                background-color: #8B65F3;
+            .azul {
+                background-color: rgba(0, 51, 255, 0.7);
+                color: white;
+            }
+
+            .preto {
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+            }
+
+            .branco {
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+
+            .nao_classificado {
+                background-color: rgba(173, 171, 171, 0.95);
+                color: #ffffff;
             }
 
             a:link, a:visited, a:hover, a:active {
                 color: white;
-                text-align: center; 
+                text-align: center;
                 text-decoration: none;
             }
         </style>
@@ -58,53 +72,51 @@
     </ui:define>
 
     <ui:define name="content">
+        <h:form>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-lg-12">
+                    <!-- Left colum -->
+                    <div class="card card-w-title">
+                        <p:messages autoUpdate="true" closable="true"/>
 
-        <p:growl autoUpdate="true"/>
-        <h:form id="dashboard">
-            <div class="card card-w-title">
-                <h1>Kanban PA</h1>
+                        <h1>Kanban PA</h1>
+                        <p:dataTable value="#{paController.pacientes}" var="paciente">
+                            <f:facet name="header">
+                                <h:outputText value="Pacientes em Urgência"/>
+                            </f:facet>
+
+                            <p:column headerText="Paciente">
+                                <h:outputText value="#{paciente.nome}"
+                                              styleClass="#{paciente.cor.toLowerCase()}"/>
+                            </p:column>
+
+                            <p:column headerText="1ª CG" style="text-align: right">
+                                <h:outputText value="#{paciente.dataFau}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="1ª Evo / ENF" style="text-align: right">
+                                <h:outputText value="#{paciente.evoDas}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="RX">
+                                <h:outputText value="#{paciente.examesRX}"/>
+                            </p:column>
+
+                            <p:column headerText="TC">
+                                <h:outputText value="#{paciente.examesTC}"/>
+                            </p:column>
 
 
-                <div class="ui-g-12 ui-md-12 ui-lg-12">
-                    <p:dataTable value="#{paController.pacientes}" var="paciente">
-                        <f:facet name="header">
-                            <h:outputText value="Pacientes em Urgência" />
-                        </f:facet>
-                        <p:column headerText="Paciente">
-                            <h:outputText value="#{paciente.nome}"/>
-                        </p:column>
-                        <p:column headerText="Classificação">
-                            <h:outputText value="#{paciente.dataClassificacao}"/>
-                        </p:column>
-
-                        <p:column headerText="Cor" style="text-align: right">
-                            <h:outputText value="#{paciente.cor}"/>
-                        </p:column>
-
-                        <p:column headerText="Data Atendimento">
-                            <h:outputText value="#{paciente.dataAtendimento}"/>
-                        </p:column>
-
-                        <p:column headerText="Atendimento">
-                            <h:outputText value="#{paciente.codigoAtendimento}"/>
-                        </p:column>
-
-                        <p:column headerText="1ª ECG" style="text-align: right">
-                            <h:outputText value="#{paciente.dataFau}"/>
-                        </p:column>
-
-                        <p:column headerText="1ª Evo / ENF" style="text-align: right">
-                            <h:outputText value="#{paciente.evoDas}"/>
-                        </p:column>
-
-
-                    </p:dataTable>
+                        </p:dataTable>
+                    </div>
                 </div>
-
             </div>
-            <p:poll interval="60" update="dashboard" />
+            <p:poll interval="5" update="@form" />
         </h:form>
-
     </ui:define>
 
 </ui:composition>

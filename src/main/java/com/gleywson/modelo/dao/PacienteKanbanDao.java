@@ -36,13 +36,13 @@ public class PacienteKanbanDao {
             while (rs.next()) {
                 
                 PacienteKanban paciente = new PacienteKanban();
-                paciente.setNome(rs.getString("NM_PACIENTE"));
-                paciente.setDataClassificacao(rs.getTimestamp("CLASSIFICACAO"));
+                paciente.setNome(rs.getString("PACIENTE"));
                 paciente.setCor(rs.getString("COR"));
-                paciente.setCodigoAtendimento(rs.getLong("CD_ATENDIMENTO"));
-                paciente.setDataAtendimento(rs.getTimestamp("HR_ATENDIMENTO"));
                 paciente.setDataFau(rs.getTimestamp("FAU"));
                 paciente.setEvoDas(rs.getTimestamp("DAS"));
+                paciente.setExamesRX(rs.getString("RX"));
+                paciente.setExamesTC(rs.getString("TC"));
+
                 
                 pacientes.add(paciente);
                         
