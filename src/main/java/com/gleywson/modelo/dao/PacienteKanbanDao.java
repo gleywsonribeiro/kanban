@@ -6,9 +6,8 @@
 package com.gleywson.modelo.dao;
 
 import com.gleywson.controller.factory.ConnectionFactory;
-import com.gleywson.modelo.PacienteKanban;
-import com.gleywson.modelo.nir.LeitoLimpeza;
-import com.gleywson.modelo.nir.LeitoVago;
+import com.gleywson.modelo.pa.PacienteKanban;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +29,7 @@ public class PacienteKanbanDao {
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
-            statement = connection.prepareStatement("select * from kanban");
+            statement = connection.prepareStatement("SELECT * FROM KANBAN_PA");
             rs = statement.executeQuery();
 
             while (rs.next()) {
@@ -39,9 +38,14 @@ public class PacienteKanbanDao {
                 paciente.setNome(rs.getString("PACIENTE"));
                 paciente.setCor(rs.getString("COR"));
                 paciente.setDataFau(rs.getTimestamp("FAU"));
+                paciente.setDataClassificacao(rs.getTimestamp("CLASSIFICACAO"));
                 paciente.setEvoDas(rs.getTimestamp("DAS"));
                 paciente.setExamesRX(rs.getString("RX"));
                 paciente.setExamesTC(rs.getString("TC"));
+                paciente.setExamesRM(rs.getString("RM"));
+                paciente.setDataImagem(rs.getTimestamp("DT_PED_RX"));
+                paciente.setDataLab(rs.getTimestamp("DT_PED_LAB"));
+                paciente.setExamesLab(rs.getString("EXAMES"));
 
                 
                 pacientes.add(paciente);

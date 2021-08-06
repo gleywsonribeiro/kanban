@@ -34,7 +34,7 @@ public class GuestPreferences implements Serializable {
     
     private String profileMode = "inline";
     
-    private String menuLayout = "static";
+    private String menuLayout = "overlay";
     
     private boolean compact = true;
     

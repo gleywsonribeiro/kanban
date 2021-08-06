@@ -67,6 +67,19 @@
                 text-align: center;
                 text-decoration: none;
             }
+            .col_exames {
+                text-align: center;
+                width: 80px;
+            }
+
+            .status-vermelho {
+                color: red;
+            }
+
+            .status-verde {
+                color: green;
+            }
+
         </style>
 
     </ui:define>
@@ -90,26 +103,51 @@
                                               styleClass="#{paciente.cor.toLowerCase()}"/>
                             </p:column>
 
-                            <p:column headerText="1ª CG" style="text-align: right">
+                            <p:column headerText="Data Classificação" style="text-align: center; width: 200px">
+                                <h:outputText value="#{paciente.dataClassificacao}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="FAU" style="text-align: center; width: 200px">
                                 <h:outputText value="#{paciente.dataFau}">
                                     <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
                                 </h:outputText>
                             </p:column>
 
-                            <p:column headerText="1ª Evo / ENF" style="text-align: right">
+                            <p:column headerText="1ª Evo / ENF" style="text-align: center; width: 200px">
                                 <h:outputText value="#{paciente.evoDas}">
                                     <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
                                 </h:outputText>
                             </p:column>
 
-                            <p:column headerText="RX">
-                                <h:outputText value="#{paciente.examesRX}"/>
+                            <p:column headerText="Data/Hora Ped. SADT" style="text-align: center; width: 200px">
+                                <h:outputText value="#{paciente.dataImagem}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                </h:outputText>
                             </p:column>
 
-                            <p:column headerText="TC">
-                                <h:outputText value="#{paciente.examesTC}"/>
+                            <p:column headerText="RX" styleClass="col_exames">
+                                <h:outputText value="#{paciente.examesRX}" styleClass="#{paciente.statusRX}"/>
                             </p:column>
 
+                            <p:column headerText="TC" styleClass="col_exames">
+                                <h:outputText value="#{paciente.examesTC}" styleClass="#{paciente.statusTC}"/>
+                            </p:column>
+
+                            <p:column headerText="RM" styleClass="col_exames">
+                                <h:outputText value="#{paciente.examesRM}" styleClass="#{paciente.statusRM}"/>
+                            </p:column>
+
+                            <p:column headerText="Data/Hora Ped. Lab." style="text-align: center; width: 200px">
+                                <h:outputText value="#{paciente.dataLab}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Laboratório" styleClass="col_exames">
+                                <h:outputText value="#{paciente.examesLab}" styleClass="#{paciente.statusLab}"/>
+                            </p:column>
 
                         </p:dataTable>
                     </div>

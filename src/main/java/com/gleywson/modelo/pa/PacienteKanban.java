@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gleywson.modelo;
+package com.gleywson.modelo.pa;
 
 import java.util.Date;
 
@@ -19,23 +19,15 @@ public class PacienteKanban {
     private long codigoAtendimento;
     private String cor;
     private Date dataAtendimento;
+    private Date dataImagem;
+    private Date dataLab;
     private String ExamesRX;
     private String ExamesTC;
+    private String ExamesRM;
+    private String ExamesLab;
 
     public PacienteKanban() {
     }
-
-    public PacienteKanban(String nome, Date dataClassificacao, Date dataFau, Date evoDas, long codigoAtendimento, String cor, Date dataAtendimento) {
-        this.nome = nome;
-        this.dataClassificacao = dataClassificacao;
-        this.dataFau = dataFau;
-        this.evoDas = evoDas;
-        this.codigoAtendimento = codigoAtendimento;
-        this.cor = cor;
-        this.dataAtendimento = dataAtendimento;
-    }
-
-    
 
     public String getNome() {
         return nome;
@@ -107,5 +99,78 @@ public class PacienteKanban {
 
     public void setExamesTC(String examesTC) {
         ExamesTC = examesTC;
+    }
+
+    public Date getDataImagem() {
+        return dataImagem;
+    }
+
+    public void setDataImagem(Date dataImagem) {
+        this.dataImagem = dataImagem;
+    }
+
+    public Date getDataLab() {
+        return dataLab;
+    }
+
+    public void setDataLab(Date dataLab) {
+        this.dataLab = dataLab;
+    }
+
+    public String getExamesRM() {
+        return ExamesRM;
+    }
+
+    public void setExamesRM(String examesRM) {
+        ExamesRM = examesRM;
+    }
+
+    public String getExamesLab() {
+        return ExamesLab;
+    }
+
+    public void setExamesLab(String examesLab) {
+        ExamesLab = examesLab;
+    }
+
+    private Boolean isOk(String exames) {
+        if(exames == null) {
+            return false;
+        } else {
+            String[] fragment = exames.split("/");
+            return fragment[0].equals(fragment[1]);
+        }
+    }
+
+    public String getStatusRX() {
+        if(isOk(getExamesRX())) {
+            return "status-verde";
+        } else {
+            return "status-vermelho";
+        }
+    }
+
+    public String getStatusTC() {
+        if(isOk(getExamesTC())) {
+            return "status-verde";
+        } else {
+            return "status-vermelho";
+        }
+    }
+
+    public String getStatusRM() {
+        if(isOk(getExamesRM())) {
+            return "status-verde";
+        } else {
+            return "status-vermelho";
+        }
+    }
+
+    public String getStatusLab() {
+        if(isOk(getExamesLab())) {
+            return "status-verde";
+        } else {
+            return "status-vermelho";
+        }
     }
 }

@@ -5,11 +5,9 @@
  */
 package com.gleywson.controller;
 
-import com.gleywson.modelo.PacienteKanban;
-import com.gleywson.modelo.dao.LeitoDao;
+import com.gleywson.modelo.pa.PacienteKanban;
 import com.gleywson.modelo.dao.PacienteKanbanDao;
-import com.gleywson.modelo.nir.LeitoLimpeza;
-import com.gleywson.modelo.nir.LeitoVago;
+
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
