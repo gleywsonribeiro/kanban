@@ -5,10 +5,13 @@
  */
 package com.gleywson.modelo.pa;
 
+import com.gleywson.util.CalcDate;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
  * @author Gleywson
  */
 public class PacienteKanban {
@@ -45,16 +48,30 @@ public class PacienteKanban {
         this.dataClassificacao = dataClassificacao;
     }
 
-    public Date getDataFau() {
-        return dataFau;
+//    public Date getDataFau() {
+//        return dataFau;
+//    }
+
+    public String getDataFau() {
+        if (dataFau != null) {
+            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            return format.format(dataFau);
+        } else {
+            return CalcDate.tempoEntredatas(dataClassificacao, new Date());
+        }
     }
 
     public void setDataFau(Date dataFau) {
         this.dataFau = dataFau;
     }
 
-    public Date getEvoDas() {
-        return evoDas;
+    public String getEvoDas() {
+        if (evoDas != null) {
+            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            return format.format(evoDas);
+        } else {
+            return CalcDate.tempoEntredatas(dataClassificacao, new Date());
+        }
     }
 
     public void setEvoDas(Date evoDas) {
@@ -101,16 +118,26 @@ public class PacienteKanban {
         ExamesTC = examesTC;
     }
 
-    public Date getDataImagem() {
-        return dataImagem;
+    public String getDataImagem() {
+        if (dataImagem != null) {
+            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            return format.format(dataImagem);
+        } else {
+            return CalcDate.tempoEntredatas(dataClassificacao, new Date());
+        }
     }
 
     public void setDataImagem(Date dataImagem) {
         this.dataImagem = dataImagem;
     }
 
-    public Date getDataLab() {
-        return dataLab;
+    public String getDataLab() {
+        if (dataLab != null) {
+            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            return format.format(dataLab);
+        } else {
+            return CalcDate.tempoEntredatas(dataClassificacao, new Date());
+        }
     }
 
     public void setDataLab(Date dataLab) {
@@ -134,7 +161,7 @@ public class PacienteKanban {
     }
 
     private Boolean isOk(String exames) {
-        if(exames == null) {
+        if (exames == null) {
             return false;
         } else {
             String[] fragment = exames.split("/");
@@ -143,7 +170,7 @@ public class PacienteKanban {
     }
 
     public String getStatusRX() {
-        if(isOk(getExamesRX())) {
+        if (isOk(getExamesRX())) {
             return "status-verde";
         } else {
             return "status-vermelho";
@@ -151,7 +178,7 @@ public class PacienteKanban {
     }
 
     public String getStatusTC() {
-        if(isOk(getExamesTC())) {
+        if (isOk(getExamesTC())) {
             return "status-verde";
         } else {
             return "status-vermelho";
@@ -159,7 +186,7 @@ public class PacienteKanban {
     }
 
     public String getStatusRM() {
-        if(isOk(getExamesRM())) {
+        if (isOk(getExamesRM())) {
             return "status-verde";
         } else {
             return "status-vermelho";
@@ -167,10 +194,12 @@ public class PacienteKanban {
     }
 
     public String getStatusLab() {
-        if(isOk(getExamesLab())) {
+        if (isOk(getExamesLab())) {
             return "status-verde";
         } else {
             return "status-vermelho";
         }
     }
+
+
 }
