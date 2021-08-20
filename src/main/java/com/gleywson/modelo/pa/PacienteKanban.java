@@ -54,8 +54,7 @@ public class PacienteKanban {
 
     public String getDataFau() {
         if (dataFau != null) {
-            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            return format.format(dataFau);
+            return CalcDate.tempoEntredatas(dataClassificacao, dataFau);
         } else {
             return CalcDate.tempoEntredatas(dataClassificacao, new Date());
         }
@@ -67,8 +66,7 @@ public class PacienteKanban {
 
     public String getEvoDas() {
         if (evoDas != null) {
-            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            return format.format(evoDas);
+            return CalcDate.tempoEntredatas(dataClassificacao, evoDas);
         } else {
             return CalcDate.tempoEntredatas(dataClassificacao, new Date());
         }
@@ -120,8 +118,7 @@ public class PacienteKanban {
 
     public String getDataImagem() {
         if (dataImagem != null) {
-            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            return format.format(dataImagem);
+            return CalcDate.tempoEntredatas(dataClassificacao, dataImagem);
         } else {
             return CalcDate.tempoEntredatas(dataClassificacao, new Date());
         }
@@ -133,8 +130,7 @@ public class PacienteKanban {
 
     public String getDataLab() {
         if (dataLab != null) {
-            DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            return format.format(dataLab);
+            return CalcDate.tempoEntredatas(dataClassificacao, dataLab);
         } else {
             return CalcDate.tempoEntredatas(dataClassificacao, new Date());
         }
@@ -201,5 +197,28 @@ public class PacienteKanban {
         }
     }
 
+    private String getColorDate(Date date) {
+        if(date == null) {
+            return "status-vermelho";
+        } else {
+            return "status-verde";
+        }
+    }
+
+    public String getCorFau() {
+        return getColorDate(dataFau);
+    }
+
+    public String getCorEvo() {
+        return getColorDate(evoDas);
+    }
+
+    public String getCorImagem() {
+        return getColorDate(dataImagem);
+    }
+
+    public String getCorLab() {
+        return getColorDate(dataLab);
+    }
 
 }

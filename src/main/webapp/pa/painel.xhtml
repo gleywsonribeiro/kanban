@@ -100,45 +100,45 @@
 
                             <p:column headerText="Paciente">
                                 <h:outputText value="#{paciente.nome}"
-                                              styleClass="#{paciente.cor.toLowerCase()}"/>
+                                              styleClass="#{paciente.cor.toLowerCase()}" />
                             </p:column>
 
                             <p:column headerText="Data Classificação" style="text-align: center; width: 200px">
-                                <h:outputText value="#{paciente.dataClassificacao}">
+                                <h:outputText value="#{paciente.dataClassificacao}" style="font-size: large">
                                     <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
                                 </h:outputText>
                             </p:column>
 
                             <p:column headerText="FAU" style="text-align: center; width: 200px">
-                                <h:outputText value="#{paciente.dataFau}"/>
+                                <h:outputText value="#{paciente.dataFau}" styleClass="#{paciente.corFau}" style="font-size: x-large"/>
                             </p:column>
 
                             <p:column headerText="1ª Evo / ENF" style="text-align: center; width: 200px">
-                                <h:outputText value="#{paciente.evoDas}"/>
+                                <h:outputText value="#{paciente.evoDas}" styleClass="#{paciente.corEvo}" style="font-size: x-large"/>
                             </p:column>
 
                             <p:column headerText="Data/Hora Ped. SADT" style="text-align: center; width: 200px">
-                                <h:outputText value="#{paciente.dataImagem}"/>
+                                <h:outputText value="#{paciente.dataImagem}"  styleClass="#{paciente.corImagem}" style="font-size: x-large"/>
                             </p:column>
 
                             <p:column headerText="RX" styleClass="col_exames">
-                                <h:outputText value="#{paciente.examesRX}" styleClass="#{paciente.statusRX}"/>
+                                <h:outputText value="#{paciente.examesRX}" styleClass="#{paciente.statusRX}" style="font-size: x-large"/>
                             </p:column>
 
                             <p:column headerText="TC" styleClass="col_exames">
-                                <h:outputText value="#{paciente.examesTC}" styleClass="#{paciente.statusTC}"/>
+                                <h:outputText value="#{paciente.examesTC}" styleClass="#{paciente.statusTC}" style="font-size: x-large"/>
                             </p:column>
 
                             <p:column headerText="RM" styleClass="col_exames">
-                                <h:outputText value="#{paciente.examesRM}" styleClass="#{paciente.statusRM}"/>
+                                <h:outputText value="#{paciente.examesRM}" styleClass="#{paciente.statusRM}" style="font-size: x-large"/>
                             </p:column>
 
-                            <p:column headerText="Data/Hora Ped. Lab." style="text-align: center; width: 200px">
-                                <h:outputText value="#{paciente.dataLab}"/>
+                            <p:column headerText="Data/Hora Ped. Lab." style="text-align: center; width: 200px;">
+                                <h:outputText value="#{paciente.dataLab}" styleClass="#{paciente.corLab}" style="font-size: x-large"/>
                             </p:column>
 
                             <p:column headerText="Laboratório" styleClass="col_exames">
-                                <h:outputText value="#{paciente.examesLab}" styleClass="#{paciente.statusLab}"/>
+                                <h:outputText value="#{paciente.examesLab}" styleClass="#{paciente.statusLab}" style="font-size: x-large"/>
                             </p:column>
 
                         </p:dataTable>
